@@ -5,6 +5,8 @@ import {FoodModel} from "../../database/allModels";
 
 const Router = express.Router();
 
+//------------------------------------------------------------------------------------------------------------------
+
 // -------------------------------
 // --- HOMEWORK ---
 /*
@@ -16,6 +18,26 @@ const Router = express.Router();
 */
 // -------------------------------
 
+Router.post('/:_id' ,async(req , res) =>{
+    try{
+        //RECHECK BELOW 3 LINES--⬇️-----
+        // const {_id} = req.params;
+        
+        // const foods = FoodModel.findById(_id);
+
+        // return res.json({foods});
+        //-------------------------------
+
+        res.status(201).json({
+            message: "Things Craeted Successfully"
+        })
+
+    }catch(error){
+        return res.status(500).json({error: error.message});
+    }
+});
+
+//--------------------------------------------------------------------------------------------------------------------
 
 /*
  * Route    /:_id

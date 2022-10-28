@@ -5,6 +5,7 @@ import {RestaurantModel} from "../../database/allModels";
 
 const Router = express.Router();
 
+//------------------------------------------------------------------------------------------------------------------
 
 // HOMEWORK-----------------------
 /*
@@ -15,6 +16,28 @@ const Router = express.Router();
  * Method   POST
 */
 // -------------------------------
+
+
+Router.post('/' ,async(req , res) =>{
+    try{
+        //RECHECK BELOW 3 LINES--⬇️-----
+        // const {_id} = req.params;
+        
+        // const foods = FoodModel.findById(_id);
+
+        // return res.json({foods});
+        //-------------------------------
+
+        res.status(201).json({
+            message: "Things Craeted Successfully"
+        })
+
+    }catch(error){
+        return res.status(500).json({error: error.message});
+    }
+});
+
+//------------------------------------------------------------------------------------------------------------------
 
 /*
  * Route    /
@@ -100,7 +123,7 @@ Router.get('/search/:searchString' , async( req , res) => {
             name : { $regex: searchString , $options: "i"},
         });
 
-        if(!restaurants){
+        if(!restaurants.length === 0){
             return res.status(404).json({ error: `No restaurant matched with ${searchString}`});
         }
 
