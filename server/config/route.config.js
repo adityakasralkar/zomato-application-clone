@@ -11,7 +11,10 @@ const ExtractJwt = JwtPassport.ExtractJwt;
 //}
 const options = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+    
+    //ERROR OCCURS DURING ENV PROCESS -- CHECK LATER
     secretOrKey: "ZomatoApp" , 
+
 };
 
 export default (passport) => {
